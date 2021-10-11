@@ -1,0 +1,29 @@
+<?php
+namespace DummyNamespace;
+
+use Illuminate\Database\Eloquent\Model;
+use DummyRepositoryClassUse;
+use DummyNamespace\DummyInterface;
+use App\Models\DummyModelUse;
+
+class DummyClass extends DummyRepositoryClass implements DummyInterface{
+
+    /**
+    * @return Model
+    */
+    public function getModel()
+    {
+        // TODO: Implement getModel() method.
+        return new DummyModel();
+    }
+
+    public function buildFilters($filters, &$query)
+    {
+        // TODO: Implement buildFilters() method.
+        $query = $query->when(isset($filters['id']),function ($query) use ($filters){
+            $query->where('id',$filters['id']);
+        })->when(isset($filters['ids']),function ($query) use ($filters){
+            $query->whereIn('id',$filters['ids']);
+        });
+    }
+}

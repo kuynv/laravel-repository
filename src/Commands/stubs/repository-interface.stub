@@ -1,0 +1,9 @@
+<?php
+
+namespace DummyNamespace;
+
+use Qnv\Repository\RepositoryInterface;
+
+interface DummyInterface extends RepositoryInterface {
+
+}

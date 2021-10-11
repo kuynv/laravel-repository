@@ -1,0 +1,20 @@
+{
+    "name": "qnv/repository",
+    "description": "make repository pattern",
+    "type": "library",
+    "require": {
+        "illuminate/console": "^8.63"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Qnv\\Repository\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Qnv",
+            "email": "quynguyen@dones.ai"
+        }
+    ]
+}
