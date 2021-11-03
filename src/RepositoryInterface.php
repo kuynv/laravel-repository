@@ -14,7 +14,14 @@ interface RepositoryInterface{
      * @param array $filters
      * @return array
      */
-    public function get($filters = []);
+    public function getOne(array $filters);
+
+    /**
+     * get all rows by filters
+     * @param array $filters
+     * @return array
+     */
+    public function get(array $filters);
 
     /**
      * create new data

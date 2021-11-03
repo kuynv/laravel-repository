@@ -13,13 +13,21 @@ abstract class RepositoryEloquent implements RepositoryInterface{
         return $this->getModel()->find($id);
     }
 
-    public function get($filters = [])
+    public function getOne(array $filters = [])
+    {
+        // TODO: Implement getOne() method.
+        $model = $this->getModel();
+        $this->buildFilters($filters,$model);
+        return $model->first();
+    }
+
+    public function get(array $filters = [])
     {
         // TODO: Implement store() method.
         $model = $this->getModel();
-        $model = $this->buildFilters($filters,$model);
+        $this->buildFilters($filters,$model);
         if(isset($filters['limit'])){
-            return $model->parginate($filters['limit']);
+            return $model->paginate($filters['limit']);
         }
         return $model->get();
     }
@@ -35,7 +43,7 @@ abstract class RepositoryEloquent implements RepositoryInterface{
     {
         // TODO: Implement update() method.
         $model = $this->getModel();
-        $model = $this->buildFilters($filters,$model);
+        $this->buildFilters($filters,$model);
         return $model->update($data);
     }
 
