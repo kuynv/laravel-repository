@@ -1,6 +1,6 @@
 {
     "name": "qnv/repository",
-    "description": "make repository pattern",
+    "description": "make laravel repository pattern",
     "type": "library",
     "require": {
         "illuminate/console": "^8.63"
