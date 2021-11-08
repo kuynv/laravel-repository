@@ -3,7 +3,7 @@
     "description": "make laravel repository pattern",
     "type": "library",
     "require": {
-        "illuminate/console": "^8.63"
+        "illuminate/console": ">=08.0"
     },
     "license": "MIT",
     "autoload": {
