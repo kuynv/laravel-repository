@@ -21,7 +21,7 @@ interface RepositoryInterface{
      * @param array $filters
      * @return array
      */
-    public function get(array $filters);
+    public function get(array $filters, array $with);
 
     /**
      * create new data

@@ -21,10 +21,13 @@ abstract class RepositoryEloquent implements RepositoryInterface{
         return $model->first();
     }
 
-    public function get(array $filters = [])
+    public function get(array $filters = [],array $with = [])
     {
         // TODO: Implement store() method.
         $model = $this->getModel();
+        if(count($with)>0){
+            $model = $model->with($with);
+        }
         $this->buildFilters($filters,$model);
         if(isset($filters['limit'])){
             return $model->paginate($filters['limit']);
