@@ -7,16 +7,23 @@ abstract class RepositoryEloquent implements RepositoryInterface{
      */
     abstract public function getModel();
 
-    public function view($id)
+    public function view($id, array $with= [])
     {
         // TODO: Implement view() method.
-        return $this->getModel()->find($id);
+        $model = $this->getModel();
+        if(count($with)>0){
+            $model = $model->with($with);
+        }
+        return $model->find($id);
     }
 
-    public function getOne(array $filters = [])
+    public function getOne(array $filters = [], array $with= [])
     {
         // TODO: Implement getOne() method.
         $model = $this->getModel();
+        if(count($with)>0){
+            $model = $model->with($with);
+        }
         $this->buildFilters($filters,$model);
         return $model->first();
     }

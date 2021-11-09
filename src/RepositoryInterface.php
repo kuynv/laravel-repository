@@ -7,14 +7,14 @@ interface RepositoryInterface{
      * @param mixed $id
      * @return array
      */
-    public function view($id);
+    public function view($id, array $with);
 
     /**
      * get all rows by filters
      * @param array $filters
      * @return array
      */
-    public function getOne(array $filters);
+    public function getOne(array $filters, array $with);
 
     /**
      * get all rows by filters
